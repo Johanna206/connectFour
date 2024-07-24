@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Four</title>
+    <link href="css/styles.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="scripts/connectFour.js"></script>
+</head>
+<body>
+    <h1>Connect Four</h1>
+    <p>Click above a column to drop a piece down it.</p>
+    <p id="nextPlayer">The red player goes first.</p>
+
+    <div class="drops">
+        <div><image src="images/greyArrow.svg.png" alt="arrow"  id="arrow1" onclick="turn(0)" onmouseover="hover('arrow1')" onmouseout="unhover('arrow1')"></div>
+        <div><image src="images/greyArrow.svg.png" alt="arrow"  id="arrow2" onclick="turn(1)" onmouseover="hover('arrow2')" onmouseout="unhover('arrow2')"></div>
+        <div><image src="images/greyArrow.svg.png" alt="arrow"  id="arrow3" onclick="turn(2)" onmouseover="hover('arrow3')" onmouseout="unhover('arrow3')"></div>
+        <div><image src="images/greyArrow.svg.png" alt="arrow"  id="arrow4" onclick="turn(3)" onmouseover="hover('arrow4')" onmouseout="unhover('arrow4')"></div>
+        <div><image src="images/greyArrow.svg.png" alt="arrow"  id="arrow5" onclick="turn(4)" onmouseover="hover('arrow5')" onmouseout="unhover('arrow5')"></div>
+        <div><image src="images/greyArrow.svg.png" alt="arrow"  id="arrow6" onclick="turn(5)" onmouseover="hover('arrow6')" onmouseout="unhover('arrow6')"></div>
+        <div><image src="images/greyArrow.svg.png" alt="arrow"  id="arrow7" onclick="turn(6)" onmouseover="hover('arrow7')" onmouseout="unhover('arrow7')"></div>
+    </div>
+    <div class="boardWrapper">
+        <div class="square" class="row1" clas="col1" id="row1_col1"></div> 
+        <div class="square" class="row1" clas="col2" id="row1_col2"></div> 
+        <div class="square" class="row1" clas="col3" id="row1_col3"></div> 
+        <div class="square" class="row1" clas="col4" id="row1_col4"></div> 
+        <div class="square" class="row1" clas="col5" id="row1_col5"></div> 
+        <div class="square" class="row1" clas="col6" id="row1_col6"></div> 
+        <div class="square" class="row1" clas="col7" id="row1_col7"></div> 
+        <div class="square" class="row2" clas="col1" id="row2_col1"></div> 
+        <div class="square" class="row2" clas="col2" id="row2_col2"></div> 
+        <div class="square" class="row2" clas="col3" id="row2_col3"></div> 
+        <div class="square" class="row2" clas="col4" id="row2_col4"></div> 
+        <div class="square" class="row2" clas="col5" id="row2_col5"></div> 
+        <div class="square" class="row2" clas="col6" id="row2_col6"></div> 
+        <div class="square" class="row2" clas="col7" id="row2_col7"></div> 
+        <div class="square" class="row3" clas="col1" id="row3_col1"></div> 
+        <div class="square" class="row3" clas="col2" id="row3_col2"></div> 
+        <div class="square" class="row3" clas="col3" id="row3_col3"></div> 
+        <div class="square" class="row3" clas="col4" id="row3_col4"></div> 
+        <div class="square" class="row3" clas="col5" id="row3_col5"></div> 
+        <div class="square" class="row3" clas="col6" id="row3_col6"></div> 
+        <div class="square" class="row3" clas="col7" id="row3_col7"></div> 
+        <div class="square" class="row4" clas="col1" id="row4_col1"></div> 
+        <div class="square" class="row4" clas="col2" id="row4_col2"></div> 
+        <div class="square" class="row4" clas="col3" id="row4_col3"></div> 
+        <div class="square" class="row4" clas="col4" id="row4_col4"></div> 
+        <div class="square" class="row4" clas="col5" id="row4_col5"></div> 
+        <div class="square" class="row4" clas="col6" id="row4_col6"></div> 
+        <div class="square" class="row4" clas="col7" id="row4_col7"></div> 
+        <div class="square" class="row5" clas="col1" id="row5_col1"></div> 
+        <div class="square" class="row5" clas="col2" id="row5_col2"></div> 
+        <div class="square" class="row5" clas="col3" id="row5_col3"></div> 
+        <div class="square" class="row5" clas="col4" id="row5_col4"></div> 
+        <div class="square" class="row5" clas="col5" id="row5_col5"></div> 
+        <div class="square" class="row5" clas="col6" id="row5_col6"></div> 
+        <div class="square" class="row5" clas="col7" id="row5_col7"></div> 
+        <div class="square" class="row6" clas="col1" id="row6_col1"></div> 
+        <div class="square" class="row6" clas="col2" id="row6_col2"></div> 
+        <div class="square" class="row6" clas="col3" id="row6_col3"></div> 
+        <div class="square" class="row6" clas="col4" id="row6_col4"></div> 
+        <div class="square" class="row6" clas="col5" id="row6_col5"></div> 
+        <div class="square" class="row6" clas="col6" id="row6_col6"></div> 
+        <div class="square" class="row6" clas="col7" id="row6_col7"></div>         
+    </div>    
+</body>
+</html>
+
+  

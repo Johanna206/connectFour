@@ -1,0 +1,46 @@
+/* connect four */
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+h1 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+p {
+    margin-bottom: 20px;
+}
+body {
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+.drops {
+    display: grid;
+    grid-template-columns: repeat(7, 100px);
+}
+.drops img {
+    width: 100px;
+    height: 100px;
+}
+.boardWrapper {
+    display: grid;
+    grid-template-columns: repeat(7, 100px);
+    grid-auto-rows: 100px;
+    background-color: rgb(255, 238, 0);
+    width: 704px;
+    border: 2px solid rgb(207, 194, 6);
+    margin-bottom: 100px;
+}
+.boardWrapper div {
+    border: 20px solid rgb(255, 238, 0);
+    border-radius: 50%;
+    background-color: white;
+}
+.boardWrapper img {
+    height: 80px;
+    width: 80px;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+  
