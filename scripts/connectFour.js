@@ -70,32 +70,46 @@ function displayPiece(row, col, color) {
     board[col]['row' + (row + 1)] = color;
     document.getElementById(location).appendChild(image);
 }
+// variable to keep track of if a piece was successfully dropped or not, only move to the next turn if a piece was dropped successfully
+let droppedPiece = true;
 // calculates which piece to put where, depending on which column it is placed in and whose turn it is
 // col should be a number 0 - 6
 // player should be 'red' or 'blue' 
 function dropPiece(col) {
     if (board[col]['row6'] == 'empty') {
         displayPiece(5, col, player);
+        droppedPiece = true;
         console.log(player + ' piece fell into row6');
     } else if (board[col]['row5'] == 'empty') {
         displayPiece(4, col, player);
+        droppedPiece = true;
         console.log(player + ' piece fell into row5');
     } else if (board[col]['row4'] == 'empty') {
         displayPiece(3, col, player);
+        droppedPiece = true;
         console.log(player + ' piece fell into row4');
     } else if (board[col]['row3'] == 'empty') {
         displayPiece(2, col, player);
+        droppedPiece = true;
         console.log(player + ' piece fell into row3');
     } else if (board[col]['row2'] == 'empty') {
         displayPiece(1, col, player);
+        droppedPiece = true;
         console.log(player + ' piece fell into row2');
     } else if (board[col]['row1'] == 'empty') {
         displayPiece(0, col, player);
+        droppedPiece = true;
         console.log(player + ' piece fell into row1');
+    } else if (board[col]['row1'] != 'empty') {
+        console.log('column full');
+        document.getElementById('nextPlayer').innerHTML = "Column full.";
+        droppedPiece = false;
     } else {
-        console.log('error: could not drop piece')
+        console.log('error: could not drop piece');
     }
 }
+// variable to keep track of if there is a winner (or if the game ended in a draw)
+let winner = false;
 // check to see if there are four in a row, horizontally, vertically, or diagonally
 function checkForWin() {
     // check for horizontal wins (4 on the same row)
@@ -111,6 +125,7 @@ function checkForWin() {
                     console.log('four in a row');
                     console.log(board[c]['row' + r] + ' wins!');
                     gameOver = true;
+                    winner = true;
                 }
             }
         }
@@ -122,10 +137,12 @@ function checkForWin() {
         for (r = 1; r < 4; r++) {
             if (board[c]['row' + r] != 'empty') {
                 neighbors = [board[c]['row' + r], board[c]['row' + (r + 1)], board[c]['row' + (r + 2)], board[c]['row' + (r + 3)]];
+                // mini function to check that all values in the array are equal
                 if (neighbors.every(val => val === neighbors[0])) {
                     console.log('four in a column');
                     console.log(board[c]['row' + r] + ' wins!');
                     gameOver = true;
+                    winner = true;
                 }
             }
         }
@@ -141,6 +158,7 @@ function checkForWin() {
                     console.log('four in a diagonal bottom left to top right');
                     console.log(board[c]['row' + r] + ' wins!');
                     gameOver = true;
+                    winner = true;
                 }
             }
         }
@@ -156,15 +174,24 @@ function checkForWin() {
                     console.log('four in a diagonal topleft to bottomright');
                     console.log(board[c]['row' + r] + ' wins!');
                     gameOver = true;
+                    winner = true;
                 }
             }
         }
-
+    }
+    // check in the unlikely case that the game ends because whole board is full and the game is a draw
+    if (![board[0]['row1'], board[1]['row1'], board[2]['row1'], board[3]['row1'], board[4]['row1'], board[5]['row1'], board[6]['row1']].includes('empty')) {
+        console.log('board full!');
+        gameOver = true;
     }
 }
 function endGame() {
     console.log('END GAME');
-    document.getElementById('nextPlayer').innerHTML = "Congratulations! The " + player + " player won!"
+    if (winner) {
+        document.getElementById('nextPlayer').innerHTML = "Congratulations! The " + player + " player won!"
+    } else {
+        document.getElementById('nextPlayer').innerHTML = "Board full - the game is drawn."
+    }
 }
 /* overall process for each turn
 1) dropPiece 
@@ -175,15 +202,15 @@ function endGame() {
 function turn(col) {
     if (!gameOver) {
         dropPiece(col);
-        checkForWin();
-        if (gameOver) {
-            endGame();
+        if (droppedPiece) {
+            checkForWin();
+            if (gameOver) {
+                endGame();
+            } else {
+                nextPlayer();
+            }
         }
     }
-    if (!gameOver) {
-        nextPlayer();
-    }
-
 }
 
 
