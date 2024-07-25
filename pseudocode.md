@@ -7,8 +7,8 @@ remaining items to address:
 <!-- 1) handle the case where the column is full (error: could not drop piece) -->
 2) the hover should change colors when the next player goes
 <!-- 3) handle the case in the event of a draw and the board is full  -->
-4) add a plink sound for dropping the pieces
-5) add a cheers sound for a winning move
+<!-- 4) add a plink sound for dropping the pieces -->
+<!-- 5) add a cheers sound for a winning move -->
 
 overall process for each turn: 
 1) dropPiece - calculates which row to place the piece in 

@@ -48,6 +48,8 @@ function hover(id) {
 function unhover(id) {
     document.getElementById(id).setAttribute('src', "images/greyArrow.svg.png");
 }
+// define the sound effect that plays when a piece is dropped
+let dropSound = new Audio('audio/dropSound.mp3');
 /* function to display piece on the board
 row should be a number 0 - 5
 col should be a number 0 - 6
@@ -69,6 +71,7 @@ function displayPiece(row, col, color) {
     console.log('into the location: ' + location);
     board[col]['row' + (row + 1)] = color;
     document.getElementById(location).appendChild(image);
+    dropSound.play();
 }
 // variable to keep track of if a piece was successfully dropped or not, only move to the next turn if a piece was dropped successfully
 let droppedPiece = true;
@@ -110,6 +113,8 @@ function dropPiece(col) {
 }
 // variable to keep track of if there is a winner (or if the game ended in a draw)
 let winner = false;
+// defines the cheering sound that plays when someone wins the game
+let cheerSound = new Audio('audio/cheerSound.mp3');
 // check to see if there are four in a row, horizontally, vertically, or diagonally
 function checkForWin() {
     // check for horizontal wins (4 on the same row)
@@ -126,6 +131,7 @@ function checkForWin() {
                     console.log(board[c]['row' + r] + ' wins!');
                     gameOver = true;
                     winner = true;
+                    cheerSound.play();
                 }
             }
         }
@@ -143,6 +149,7 @@ function checkForWin() {
                     console.log(board[c]['row' + r] + ' wins!');
                     gameOver = true;
                     winner = true;
+                    cheerSound.play();
                 }
             }
         }
@@ -159,6 +166,7 @@ function checkForWin() {
                     console.log(board[c]['row' + r] + ' wins!');
                     gameOver = true;
                     winner = true;
+                    cheerSound.play();
                 }
             }
         }
@@ -175,6 +183,7 @@ function checkForWin() {
                     console.log(board[c]['row' + r] + ' wins!');
                     gameOver = true;
                     winner = true;
+                    cheerSound.play();
                 }
             }
         }
@@ -185,6 +194,7 @@ function checkForWin() {
         gameOver = true;
     }
 }
+// Displays message and stops the game when it ends.
 function endGame() {
     console.log('END GAME');
     if (winner) {
@@ -193,6 +203,7 @@ function endGame() {
         document.getElementById('nextPlayer').innerHTML = "Board full - the game is drawn."
     }
 }
+
 /* overall process for each turn
 1) dropPiece 
 2) displayPiece 
