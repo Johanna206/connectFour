@@ -219,6 +219,8 @@ function turn(col) {
                 endGame();
             } else {
                 nextPlayer();
+                let arrow = 'arrow' + (col + 1);
+                hover(arrow);
             }
         }
     }
